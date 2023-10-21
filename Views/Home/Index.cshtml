@@ -1,0 +1,190 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<style>
+
+    /* Cards */
+    .card {
+        border:0;
+        background: #fff;
+    }
+
+        .card .card-body {
+            padding: 2.5rem 2.5rem;
+        }
+
+            .card .card-body + .card-body {
+                padding-top: 1rem;
+            }
+
+        .card .card-title {
+            color: #343a40;
+            margin-bottom: 0.75rem;
+            text-transform: capitalize;
+            font-family: "ubuntu-medium", sans-serif;
+            font-size: 1.125rem;
+        }
+
+        .card .card-subtitle {
+            font-family: "ubuntu-regular", sans-serif;
+            margin-top: 0.625rem;
+            margin-bottom: 0.625rem;
+        }
+
+        .card .card-description {
+            color: #76838f;
+            margin-bottom: 1.5rem;
+            font-family: "ubuntu-regular", sans-serif;
+        }
+
+        .card.card-outline-success {
+            border: 1px solid theme-color("success");
+        }
+
+        .card.card-outline-primary {
+            border: 1px solid theme-color("primary");
+        }
+
+        .card.card-outline-warning {
+            border: 1px solid theme-color("warning");
+        }
+
+        .card.card-outline-danger {
+            border: 1px solid theme-color("danger");
+        }
+
+        .card.card-rounded {
+            border-radius: 5px;
+        }
+
+        .card.card-faded {
+            background: #b5b0b2;
+            border-color: #b5b0b2;
+        }
+
+        .card.card-circle-progress {
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .card.card-img-holder {
+            position: relative;
+        }
+
+            .card.card-img-holder .card-img-absolute {
+                position: absolute;
+                top: 0;
+                right: 0;
+                height: 100%;
+            }
+
+        .card.bg-blue-gradient {
+            background: -webkit-gradient(linear, left top, right top, from(#065efd), color-stop(#3169fd), to(#6f79fc));
+            background: linear-gradient(to right, #065efd, #3169fd, #6f79fc);
+            color: #fff;
+        }
+
+        .card.bg-orange-gradient {
+            background: -webkit-gradient(linear, left top, right top, from(#ff7f2e), to(#fe7452));
+            background: linear-gradient(to right, #ff7f2e, #fe7452);
+            color: #fff;
+        }
+
+        .card.bg-green-gradient {
+            background: -webkit-gradient(linear, left top, right top, from(#24e8a6), to(#09cdd1));
+            background: linear-gradient(to right, #24e8a6, #09cdd1);
+            color: #fff;
+        }
+
+        .card.card-no-shadow {
+            -webkit-box-shadow: none;
+            box-shadow: none;
+        }
+
+
+    .page-header {
+        margin: 0 0 1.5rem 0;
+    }
+
+        .page-header .breadcrumb {
+            border: 0;
+            margin-bottom: 0;
+        }
+
+    .page-title {
+        color: #343a40;
+        font-size: 1.125rem;
+        margin-bottom: 0;
+    }
+
+        .page-title .page-title-icon {
+            display: inline-block;
+            width: 36px;
+            height: 36px;
+            border-radius: 4px;
+            text-align: center;
+            -webkit-box-shadow: 0px 3px 8.3px 0.7px rgba(163, 93, 255, 0.35);
+            box-shadow: 0px 3px 8.3px 0.7px rgba(163, 93, 255, 0.35);
+        }
+
+            .page-title .page-title-icon i {
+                font-size: .9375rem;
+                line-height: 36px;
+            }
+
+
+    .bg-gradient-primary {
+        background: -webkit-gradient(linear, left top, right top, from(#da8cff), to(#9a55ff)) !important;
+        background: linear-gradient(to right, #da8cff, #9a55ff) !important;
+    }
+
+
+</style>
+<div class="container">
+    <div class="page-header">
+        <h3 class="page-title">
+            <span class="page-title-icon bg-gradient-primary text-white me-2">
+                <i class="bi bi-house-door-fill"></i>
+            </span> Dashboard
+        </h3>
+    </div>
+    <div class="row">
+        <div class="col-md-4 stretch-card grid-margin">
+            <div class="card bg-gradient-danger card-img-holder text-white">
+                <div class="card-body bg-warning">
+                    <img src="~/images/circle.svg" class="card-img-absolute" alt="circle-image" />
+                    <h4 class="font-weight-normal mb-2">
+                        Products 
+                    </h4>
+                    <h2 class="mb-3">@ViewBag.ProductsCount</h2>
+                    <h6 class="mb-1">from @ViewBag.ProductsBrands Brand</h6>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 stretch-card grid-margin">
+            <div class="card bg-gradient-info card-img-holder text-white">
+                <div class="card-body bg-info">
+                    <img src="~/images/circle.svg" class="card-img-absolute" alt="circle-image" />
+                    <h4 class="font-weight-normal mb-2">
+                        Orders <i class="mdi mdi-bookmark-outline mdi-24px float-right"></i>
+                    </h4>
+                    <h2 class="mb-3">@ViewBag.OrdersCount</h2>
+                    <h6 class="mb-1">By @ViewBag.OrdersUsers User</h6>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 stretch-card grid-margin">
+            <div class="card bg-gradient-success card-img-holder text-white">
+                <div class="card-body bg-danger">
+                    <img src="~/images/circle.svg" class="card-img-absolute" alt="circle-image" />
+                    <h4 class="font-weight-normal mb-2">
+                        Selling Pieces <i class="mdi mdi-diamond mdi-24px float-right"></i>
+                    </h4>
+                    <h2 class="mb-3">@ViewBag.SealedCount</h2>
+                    <h6 class="mb-1">In @ViewBag.SealedOrders Order</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
